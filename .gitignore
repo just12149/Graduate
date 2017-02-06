@@ -1,0 +1,21 @@
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.svn
+*.iml
+.classpath
+.project
+Maven_*
+# Package Files #
+.svn
+
+.settings
+bin
+META-INF
+.idea
+out/
+
+
+target/*

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="graduate.dao.NewsDAO">
+    <resultMap id="newsMap" type="graduate.model.News">
+        <result column="newsId" property="newsId" javaType="long"></result>
+        <result column="title" property="title" javaType="String"></result>
+        <result column="author" property="author" javaType="String"></result>
+        <result column="url" property="url" javaType="String"></result>
+        <result column="createdTime" property="createdTime" javaType="java.sql.Date"></result>
+        <result column="newstype" property="newstype" javaType="int"></result>
+    </resultMap>
+
+
+    <!--
+        功能说明：新增code信息
+    -->
+
+    <select id="findCount" resultType="int">
+        select COUNT(1) from db_news
+        <if test="newsType != null">
+            where newsType=#{newsType}
+        </if>
+    </select>
+
+   <select id="findAll" resultMap="newsMap">
+        select * from db_news limit #{pageStart},#{pageEnd}
+    </select>
+
+    <select id="findNews" resultMap="newsMap">
+        select * from db_news where newstype=#{newstype} limit #{pageStart},#{pageEnd}
+    </select>
+
+
+    <!--插入数据--> <!--useGeneratedKeys是开启使用自增的方式
+    keyProperty是自增id填回到java bean里的那个字段-->
+
+    <insert id="insertNews" useGeneratedKeys="true" keyProperty="news.newsId">
+
+        insert into db_news
+        (
+        title,
+        author,
+        createdTime,
+        url,
+        newstype
+        )
+        values
+        (
+        #{news.title},
+        #{news.author},
+        #{news.createdTime},
+         #{news.url},
+       #{news.newstype}
+        )
+
+    </insert>
+
+    <!--删除数据-->
+    <delete id="delNews">
+        DELETE FROM db_news WHERE newsId = #{delnewsId}
+    </delete>
+
+    <!--更新数据-->
+    <update id="updNews" parameterType="graduate.model.News">
+        update db_news
+        <set>
+            <if test="news.title != null and news.title != '' ">
+                title=#{news.title},
+            </if>
+            <if test="news.author!= null">
+                author=#{news.author},
+            </if>
+            <if test="news.newstype!= null ">
+                newstype=#{news.newstype},
+            </if>
+
+            createdTime=#{news.createdTime},
+
+
+        </set>
+        where newsId=#{news.newsId}
+    </update>
+</mapper>

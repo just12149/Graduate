@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+     ">
+
+
+    <!-- 注解编程 -->
+    <context:annotation-config/>
+    <tx:annotation-driven/>
+
+    <!-- 自动扫描文件 -->
+    <context:component-scan base-package="graduate">
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.RequestMapping"/>
+    </context:component-scan>
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean lazy-init="true" id="graduate_dataSource"
+          class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          scope="singleton"  >
+        <property name="user" value="${graduate.username}"></property>
+        <property name="password" value="${graduate.password}"></property>
+        <property name="jdbcUrl" value="${graduate.url}"></property>
+        <property name="driverClass" value="${graduate.driverClassName}"></property>
+        <property name="maxPoolSize" value="30"></property>
+        <property name="initialPoolSize" value="3"></property>
+        <property name="maxIdleTime" value="14400"></property>
+    </bean>
+
+    <bean id="graduateJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="graduate_dataSource"></property>
+    </bean>
+
+    <!-- 声明式事务配置 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="graduate_dataSource"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+    <!-- 加载各模块mybatis配置-->
+    <!--<bean class="org.mybatis.spring.transaction.SpringManagedTransactionFactory"-->
+    <!--id="springManagedTransactionFactory">-->
+    <!--</bean>-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" name="sqlSessionFactory">
+        <property name="dataSource" ref="graduate_dataSource"></property>
+    </bean>
+
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:graduate/*/config/SqlMapConfig.xml</value>
+            </list>
+        </property>
+        <property name="dataSource" ref="graduate_dataSource" />
+    </bean>-->
+
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="graduate.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+</beans>

@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* 初始设置 */
+body { font-size:14px; line-height:30px; background: url(../images/bg1.jpg) center top; font-family:"微软雅黑",arial,"宋体",sans-serif normal;}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,menu,nav,section { padding:0px; margin:0px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+li { list-style:none;}
+em,i { font-style:normal;}
+img { border:0px;}
+label { font-weight:normal; margin:0px;}
+a { color:#fff; cursor:pointer; transition:background-color 0.2s ease-out , color 0.2s ease-out 0s; text-decoration:none;}
+a:hover { color:#00a2e4; text-decoration:underline;}
+.none { display:none;}
+@font-face { font-family:arial; src:url('../fonts/arial.ttf');}
+.arial { font-family:arial;}
+
+.fl { float:left;}
+.fr { float:right;}
+.w { width:1200px; margin:0px auto;}
+
+/* clearfloot */
+.clear { width:0px; height:0px; line-height:0px; font-size:0px; clear:both;}
+.clearfix { zoom:1;}
+.clearfix:after{ content:""; height:0; display:block; clear:both; visibility:hidden;}
+
+
+
+/*****************通用边框样式******************/
+.top { width:100%; height:80px; border-bottom:1px #636975 solid; background:url(../images/top_bg.png); position:absolute; left:0px; top:0px; z-index:2;}
+/*.logo { display:block; width:302px; height:80px; background:url(../images/logo.png) no-repeat center; float:left; margin-left:40px;}*/
+.logo { display:block; width:302px; height:80px; background:url(../images/logo1.jpg) no-repeat center; float:left; margin-left:0px;}
+.top_nav { float:right; line-height:40px; margin:20px 40px 0px 0px; color:#fff;}
+.top_nav dd { float:left;}
+.top_nav dt { float:left;}
+.top_nav span { padding:0px 10px; float:left;}
+.top_nav dt a { color:#00a2e4; text-decoration:underline;}
+.login_box { width:100%; height:560px; background:url(../images/qipao.png) no-repeat center 90px; position:absolute; left:0px; top:50%; z-index:1; margin-top:-350px;}
+.login { width:450px; margin:0px auto;}
+.login_top { height:170px; position:relative;}
+.login_top i { display:block; width:170px; height:170px; margin:0px auto; position:absolute; left:50%; top:0px; margin-left:-85px; z-index:1; background:url(../images/yuanquan.png) no-repeat center;-webkit-transition: 3000s; -webkit-transition: -webkit-transform 3000s ease-out; transition: transform 3000s ease-out; -moz-transition: -moz-transform 3000s ease-out;}
+.login_top b { display:block; width:170px; height:170px; margin:0px auto; position:absolute; left:50%; top:0px; margin-left:-85px; z-index:1; background:url(../images/shu.png) ;}
+body:hover .login_top i { transform: rotateZ(36000deg); -webkit-transform: rotateZ(36000deg); -moz-transform: rotateZ(36000deg);}
+.login_con { height:420px; padding-top:40px; padding-right:40px; background:url(../images/login_con.png) ;}
+.lohin_tit { height:45px; background:url(../images/userLogo.png) no-repeat 100px top; margin-bottom:40px;}
+input::-webkit-input-placeholder{ color:#999;}
+input::-moz-placeholder{ color:#999;}
+input:-ms-input-placeholder{ color:#999;}
+input { color:#fff; font-family:"微软雅黑",arial,"宋体",sans-serif normal;}
+.lohin_web { padding:0px 40px 20px 40px;}
+.lohin_web li { margin-bottom:20px;}
+.lohin_web input { width:80%; height:40px; padding:0px 20px; border:1px #4D4E52 solid; background-color:transparent; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; font-size:14px;}
+.lohin_web input:focus { border:1px #00a2e4 solid;}
+.login_btn { display:block; width:370px; height:50px; margin:0px auto; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; background-color:#fe9901; line-height:50px; font-size:18px; color:#fff; text-align:center;}
+.login_btn:hover { text-decoration:none; background-color:#f17d00; color:#fff;}
+.login_yy { height:36px; background:url(../images/login_yy.png) no-repeat center top;}
+.footer { width:100%; height:40px; position:absolute; left:0px; bottom:0px; z-index:2; background-color:#000; color:#ccc; font-size:12px; text-align:center; line-height:40px;}
+.footer span { padding:0px 20px;}

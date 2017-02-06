@@ -1,0 +1,16 @@
+.clock{
+    position:absolute;
+    top:50px;
+    right:50px;
+    font:italic  small-caps bold 16pt Courier ;
+    color:#660033
+}
+
+.welcome{
+    position:absolute;
+    top:50px;
+    left:50px;
+    font:italic  small-caps bold 20pt Courier ;
+    color:#9900FF
+
+}
