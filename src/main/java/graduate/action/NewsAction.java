@@ -87,4 +87,31 @@ private NewsService newsService;
 
         return map;
     }
+    @RequestMapping("newsdata.do")
+    public ModelAndView gonews(){
+        return new ModelAndView("news/newsdata");
+    }
+    /**
+     * 新闻内容
+     * @param newsId
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/newsData.do")
+    public Map<String,Object> querynewsByid(Integer newsId,HttpServletRequest request){
+        String path = request.getSession().getServletContext().getRealPath("upload");//文件路径
+        Map<String,Object> map=new HashMap<>();
+        List<News> list=null;
+        String url=null;
+        list=newsService.queryById(newsId);
+        if(list!=null){
+
+           url=list.get(0).getUrl();
+
+        }
+        map.put("url",url);
+        map.put("list",list);
+        map.put("success",true);
+        return map;
+    }
 }

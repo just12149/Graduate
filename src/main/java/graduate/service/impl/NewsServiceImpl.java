@@ -59,7 +59,9 @@ public class NewsServiceImpl implements NewsService {
         return state;
     }
 
-
-
-
+    @Override
+    public List<News> queryById(Integer newsId) {
+        List list=newsDAO.queryByid(newsId);
+        return list;
+    }
 }
