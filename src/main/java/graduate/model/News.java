@@ -13,6 +13,15 @@ public class News {
     private Date createdTime;//创建时间
     private String url;// 正文
     private int newstype;//新闻类别
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public Date getCreatedTime() {
         return createdTime;

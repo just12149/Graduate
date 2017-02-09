@@ -91,5 +91,6 @@ public class AllTest {
         news1.setNewsId(news.getNewsId());
         newsService.updNews(news1);
        // newsDAO.updNews(news1);*/
+        newsService.queryById(2);
     }
 }

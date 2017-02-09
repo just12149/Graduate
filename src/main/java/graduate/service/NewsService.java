@@ -18,4 +18,6 @@ public interface NewsService {
      */
     public int updNews(News news);
     public int delNews(Integer delnewsId);
+
+    public List<News> queryById(Integer newsId);
 }
