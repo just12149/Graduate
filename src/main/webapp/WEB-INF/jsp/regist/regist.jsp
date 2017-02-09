@@ -118,7 +118,7 @@
                     <input type="radio"  name="age"  id="age" value="4" > 00后
                 </label>
                 <label class="checkbox-inline">
-                    <input type="radio"  name="age"  id="age" value="5" > 10后
+                    <input type="radio"  name="age"  id="age" value="5" >其他
                 </label>
             </div>
         </div>
