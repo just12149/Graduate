@@ -1,6 +1,6 @@
 package graduate.service.impl;
 
-import graduate.dao.UserInfoDAO;
+import graduate.dao.UserInfoDao;
 import graduate.model.UserInfo;
 import graduate.service.UserInfoService;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
     @Resource
-    private UserInfoDAO userInfoDAO;
+    private UserInfoDao userInfoDAO;
 
     /**
      * 用户信息的新增

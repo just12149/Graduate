@@ -1,18 +1,12 @@
 package graduate.dao;
 
-
 import graduate.model.UserInfo;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Service;
 
 /**
- * Created by ${niuting} on 2017/1/11.
+ * Created by ${niuting} on 2017/2/10.
  */
-@Service
-
-public interface UserInfoDAO {
-
-
+public interface UserInfoDao {
 
     //public List<User>query(@Param("pageStart") Integer pageStart, @Param("pageEnd") Integer pageEnd);
 
@@ -23,7 +17,4 @@ public interface UserInfoDAO {
     public void deleteUserInfo(@Param("userId") Integer userId);
 
     public UserInfo selectUserInfoByUserId(@Param("userId") Integer userId);
-
-
-
 }

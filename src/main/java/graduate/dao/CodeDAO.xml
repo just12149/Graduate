@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<mapper namespace="graduate.dao.CodeDAO">
+<mapper namespace="graduate.dao.CodeDao">
 	<resultMap id="codeMap" type="graduate.model.CodeInfo">
 		<result column="codeId" property="codeId" javaType="long"></result>
 		<result column="codeName" property="codeName" javaType="string"></result>

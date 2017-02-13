@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/11/29.
  */
 (function(angular){
-    var filterModule = angular.module("myNoteApp.Filters", []);
+    var filterModule = angular.module("NewsApp.Filters", []);
     /**
      * 对描述进行截取
      */
@@ -15,9 +15,6 @@
             return description;
         }
     });
-
-
-
 
 
     /**

@@ -2,15 +2,13 @@ package graduate.dao;
 
 import graduate.model.News;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
- * Created by ${niuting} on 2017/2/3.
+ * Created by ${niuting} on 2017/2/10.
  */
-@Service
-public interface NewsDAO {
+public interface NewsDao {
 
     /**
      * 查询所有新闻

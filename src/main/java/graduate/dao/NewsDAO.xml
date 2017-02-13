@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 
-<mapper namespace="graduate.dao.NewsDAO">
+<mapper namespace="graduate.dao.NewsDao">
     <resultMap id="newsMap" type="graduate.model.News">
         <result column="newsId" property="newsId" javaType="long"></result>
         <result column="title" property="title" javaType="String"></result>

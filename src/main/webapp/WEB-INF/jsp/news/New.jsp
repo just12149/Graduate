@@ -20,13 +20,13 @@
 
     <link href="<%=context%>/resources/frame/bootstrap3/css/test.css" rel="stylesheet" type="text/css"/>
 
-    <script src="<%=context%>/resources/javascript/newsController.js"></script>
-    <script src="<%=context%>/resources/javascript/newsService.js"></script>
-    <script src="<%=context%>/resources/javascript/newsFilter.js"></script>
+    <script src="<%=context%>/resources/javascript/news/newsController.js"></script>
+    <script src="<%=context%>/resources/javascript/news/newsService.js"></script>
+    <script src="<%=context%>/resources/javascript/news/newsFilter.js"></script>
     <script src="<%=context%>/resources/frame/bootstrap3/js/bootstrap.min.js"></script>
 
 </head>
-<body ng-app="myNoteApp" ng-controller="myNoteCtrl">
+<body ng-app="NewsApp" ng-controller="NewsCtrl">
 <div class="container">
     <div class="page-header">
         <h1>新闻列表</h1>

@@ -1,6 +1,6 @@
 package graduate.service.impl;
 
-import graduate.dao.NewsDAO;
+import graduate.dao.NewsDao;
 import graduate.model.News;
 import graduate.service.NewsService;
 import graduate.utils.page.Page;
@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
     @Resource
-    private NewsDAO  newsDAO;
+    private NewsDao newsDAO;
     List<News> newsList = null;
     /**
      * 查找新闻列表

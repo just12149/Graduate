@@ -1,5 +1,5 @@
 (function (angular) {
-    var serviceModule = angular.module("myNoteApp.service", []);
+    var serviceModule = angular.module("CatalogApp.service", []);
     serviceModule.service("myService", function ($http) {
 
         /**
@@ -7,23 +7,23 @@
          * @returns {*}获取分页数据
          */
         this.queryPageDatas = function (params) {
-            return ajaxRequest(context + "/news/indexPageJson.do", params);
+            return ajaxRequest(context + "/news/queryCatalog.do", params);
         }
         /**
          * @param params
          * @returns {*}修改
          */
-        this.updateUser = function (params) {
-            return ajaxRequest(context+ "/news/updateJson.do", params);
+        this.updateCatalog = function (params) {
+            return ajaxRequest(context+ "/news/updateCatalog.do", params);
 
         }
         /**
          * @param params
          * @returns {*}删除
          */
-        this.delnewsId = function (params) {
+        this.delCatalogId = function (params) {
             //console.log(params);
-            return ajaxRequest(context + "/news/delJson.do", params)
+            return ajaxRequest(context + "/news/delCatalog.do", params)
         }
 
 

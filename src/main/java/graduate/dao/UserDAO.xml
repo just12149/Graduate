@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="graduate.dao.UserDAO">
+<mapper namespace="graduate.dao.UserDao">
     <!-- int userId;
      Integer userId = null;-->
     <resultMap id="userMap" type="graduate.model.User">

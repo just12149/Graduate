@@ -127,7 +127,7 @@
                     </dl>
                     <dl class="source">
                         <dt>新闻管理<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
-                        <dd class="first_dd"><a href="#">新闻栏目管理</a></dd>
+                        <dd class="first_dd"><a href="<%=context%>/catlog/findCatlog.do">新闻栏目管理</a></dd>
                         <dd><a href="#">新闻管理</a></dd>
                     </dl>
                     <dl class="statistics">

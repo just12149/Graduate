@@ -3,8 +3,8 @@
  */
 (function(){
 
-    var myApp = angular.module("myNoteApp", ["myNoteApp.service", "myNoteApp.Filters", "ngTable", "ngCommonFilter"]);
-    myApp.controller("myNoteCtrl", function ($scope, $http, NgTableParams, myService, $filter) {
+    var myApp = angular.module("CatalogApp", ["CatalogApp.service", "CatalogApp.Filters", "ngTable", "ngCommonFilter"]);
+    myApp.controller("CatalogCtrl", function ($scope, $http, NgTableParams, myService, $filter) {
         $scope.myTable = new NgTableParams(
             {
                 page: 1,
@@ -16,7 +16,7 @@
                     var param = {};
                     param.currentPage = params.page();
                     param.rowPerPage = params.count();
-                    param.newstype = $scope.isActive
+
 
                     myService.queryPageDatas(param).success(function (data) {
                         //alert(data);
@@ -26,11 +26,11 @@
                                 return;
                             }
                             $scope.myTable.total(data.totalNum);
-                            if (!data.newsList) {
+                            if (!data.catalogList) {
                                 $defer.resolve(null);
                                 return;
                             }
-                            $defer.resolve(data.newsList)
+                            $defer.resolve(data.catalogList)
                         }
                         else {
                             alert(data.msg);
@@ -44,27 +44,20 @@
 
 
 
-        $scope.types = ["科技新闻", "财经新闻", "体育新闻","民生新闻","娱乐新闻","教育新闻"];
 
 
-        <!--提交按钮-->
-        /**
-         对选中的组别进行查询
-         */
-        $scope.isActive = null;
-        $scope.Check = function (index) {
-            $scope.isActive = index;
-            $scope.myTable.goFirst();
-        }
+
+
+
         /**
          *删除数据
          */
 
-        $scope.remove = function (news, currentPage) {
+        $scope.remove = function (catalog, currentPage) {
 
             if (confirm("确定删除?")) {
 
-                myService.delnewsId({delnewsId:news.newsId})
+                myService.delCatalogId({delCatalogId:catalog.id})
                     .success(function (data) {
                         if (data.success) {
                             alert("删除成功");
@@ -77,6 +70,7 @@
             }
         }
 
+
         /**
          *
          * @type {boolean}
@@ -88,42 +82,46 @@
          $('#myModal').modal('show');
          $scope.user=updateUser;
          }*/
-        $scope.news = {};
-        $scope.update = function (news) {
-
-            if (news) {
-                /*news.removeAttr('$$hashKey');
-                $.extend($scope.news,news);*/
-                $.each(news, function(i, val) {
-                    if(i != '$$hashKey'){
-                        $scope.news[i] = val;
-                    }
-                });
-                /*alert(news);
-                $scope.news = news;*/
+        $scope.catalog = {};
+        $scope.update = function (catalog) {
+            alert("aaa");
+            if (catalog) {
+                alert(catalog);
+                $scope.catalog = catalog;
                 $('#myModal').modal('show');
 
             }
+          /*  if (catalog) {
+                /!*news.removeAttr('$$hashKey');
+                 $.extend($scope.news,news);*!/
+                $.each(catalog, function(i, val) {
+                    if(i != '$$hashKey'){
+                        $scope.catalog[i] = val;
+                    }
+                });
+                /!*alert(news);
+                 $scope.news = news;*!/
+                $('#myModal').modal('show');
+
+            }*/
             else {
                 $scope.user={
-                    title:"请输入姓名",
-                    author:0,
-                    newstype:1
+                    catalogName:"请输入姓名",
+                    catalogId:0
+
                 };
                 $('#myModal').modal('show');
             }
         }
 
+
         /**
          * 提交表单信息
          */
 
-
         $scope.mform = function () {
             if ($scope.myForm.$valid) {
-
-                //$scope.user.birthDay=new Date();
-                myService.updateUser($scope.news/*{
+                myService.updateCatalog($scope.catalog/*{
                     newsId : 1,
                     title : '123',
                     author : '234',
@@ -159,7 +157,7 @@
             $scope.isDiv=false;
             myService.queryPageDatas({}).success(function(data){
                 if(data.success){
-                    $scope.newsList=data.newsList;
+                    $scope.newsList=data.catalogList;
                     $('#myModal').modal('toggle');
                 }
                 else{

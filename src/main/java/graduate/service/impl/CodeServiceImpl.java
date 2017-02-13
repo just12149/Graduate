@@ -1,7 +1,7 @@
 package graduate.service.impl;
 
 
-import graduate.dao.CodeDAO;
+import graduate.dao.CodeDao;
 import graduate.model.CodeInfo;
 import graduate.service.CodeService;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CodeServiceImpl  implements CodeService {
 
-    CodeDAO codeDao;
+    CodeDao codeDao;
     /**
      * 新增code
      * @param code

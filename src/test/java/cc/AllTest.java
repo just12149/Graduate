@@ -1,7 +1,10 @@
 package cc;
 
-import graduate.dao.NewsDAO;
-import graduate.dao.UserDAO;
+import graduate.dao.CatalogDao;
+import graduate.dao.NewsDao;
+import graduate.dao.UserDao;
+import graduate.model.Catalog;
+import graduate.service.CatalogService;
 import graduate.service.NewsService;
 import graduate.service.UserService;
 import org.junit.Test;
@@ -15,14 +18,16 @@ import javax.annotation.Resource;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class AllTest {
+
+
     @Resource
-    UserDAO userDAO;
+    CatalogDao catalogDao;
     @Resource
-    UserService userService;
-    @Resource
-    NewsService newsService;
-    @Resource
-    NewsDAO newsDAO;
+    CatalogService catalogService;
+
+
+
+
    /* @Resource
     HUserService hUserService;
     @Resource
@@ -91,6 +96,20 @@ public class AllTest {
         news1.setNewsId(news.getNewsId());
         newsService.updNews(news1);
        // newsDAO.updNews(news1);*/
-        newsService.queryById(2);
+        // newsService.queryById(2);
+
+
+       /* catalogDao.findCatalogByName("科技新闻");
+        catalogDao.findCatalogAll(1, 2);
+        catalogDao.removeCatalog(10);
+
+        Catalog catalog = new Catalog();
+        catalog.setCatalogId(17);
+        catalog.setCatalogName("大秦网");
+        catalog.setCreatedTime("2017-2-10");
+        catalogDao.saveCatalog(catalog);
+       catalogDao.updateCatalog(catalog);*/
+
+
     }
 }

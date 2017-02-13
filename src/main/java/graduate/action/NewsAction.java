@@ -26,9 +26,9 @@ public class NewsAction {
 private NewsService newsService;
 
 
-    @RequestMapping("/query.do")
+    @RequestMapping("/New.do")
     public ModelAndView PageRequest(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("news/query");
+        ModelAndView modelAndView = new ModelAndView("news/New");
         return modelAndView;
     }
 
@@ -52,12 +52,12 @@ private NewsService newsService;
 
     @ResponseBody
     @RequestMapping("/updateJson.do")
-    public Map<String, Object> updateAction(News updateNews) {
+    public Map<String, Object> updateAction(News news) {
         Map<String, Object> map = new HashMap<String, Object>();
-        if (updateNews == null) {
+        if (news == null) {
             map.put("success", false);
         } else {
-            int state =newsService.updNews(updateNews);
+            int state =newsService.updNews(news);
             System.out.println(state);
             if (state > 0) {
                 map.put("success", true);
@@ -84,7 +84,6 @@ private NewsService newsService;
                 map.put("success", false);
             }
         }
-
         return map;
     }
     @RequestMapping("newsdata.do")
@@ -105,9 +104,7 @@ private NewsService newsService;
         String url=null;
         list=newsService.queryById(newsId);
         if(list!=null){
-
            url=list.get(0).getUrl();
-
         }
         map.put("url",url);
         map.put("list",list);

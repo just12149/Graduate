@@ -1,8 +1,8 @@
 package graduate.service.impl;
 
 
-import graduate.dao.UserDAO;
-import graduate.dao.UserInfoDAO;
+import graduate.dao.UserDao;
+import graduate.dao.UserInfoDao;
 import graduate.model.User;
 import graduate.model.UserInfo;
 import graduate.service.UserService;
@@ -24,23 +24,23 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     /* @Resource(name="userao")*/
     @Resource
-    private UserDAO userDAO;
+    private UserDao userDAO;
 
-    UserInfoDAO userInfoDAO;
+    UserInfoDao userInfoDAO;
 
-    public UserInfoDAO getUserInfoDAO() {
+    public UserInfoDao getUserInfoDAO() {
         return userInfoDAO;
     }
 
-    public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
+    public void setUserInfoDAO(UserInfoDao userInfoDAO) {
         this.userInfoDAO = userInfoDAO;
     }
 
-    public UserDAO getUserDAO() {
+    public UserDao getUserDAO() {
         return userDAO;
     }
 
-    public void setUserDAO(UserDAO userDAO) {
+    public void setUserDAO(UserDao userDAO) {
         this.userDAO = userDAO;
     }
 

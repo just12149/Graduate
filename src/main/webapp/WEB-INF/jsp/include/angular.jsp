@@ -5,10 +5,11 @@
   创建时间: 9:49
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link href="${pageContext.request.contextPath}/resources/frame/angular/ui/animate/nga.all.min.css" rel="stylesheet" type="text/css" />
-<script src="${pageContext.request.contextPath}/resources/frame/angular/base/angular.js" type="text/javascript"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/frame/angular/base/angular-animate.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/javascript/ngFilterModule.js" type="text/javascript"></script>
+<% String context=request.getContextPath(); %>
 <script>
-var context="${pageContext.request.contextPath}";
+  var context="${pageContext.request.contextPath}";
 </script>
+<link href="<%=context%>/resources/frame/angular/ui/animate/nga.all.min.css" rel="stylesheet" type="text/css" />
+<script src="<%=context%>/resources/frame/angular/base/angular.js" type="text/javascript"></script>
+<script type="text/javascript" src="<%=context%>/resources/frame/angular/base/angular-animate.min.js"></script>
+<script src="<%=context%>/resources/javascript/ngFilterModule.js" type="text/javascript"></script>
