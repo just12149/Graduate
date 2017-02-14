@@ -54,10 +54,10 @@
         UPDATE
        db_newstype
         SET
-        CatalogName= #{catalog.CatalogName},
-        CatalogId=  #{catalog.CatalogId},
+        CatalogName= #{catalog.catalogName},
+        CatalogId=  #{catalog.catalogId},
         createdTime=#{catalog.createdTime}
         WHERE
-         Id= #{catalog.Id}
+         Id= #{catalog.id}
     </update>
 </mapper>
