@@ -7,6 +7,8 @@ public class User {
 
     private Integer userId;
 
+
+    private Integer roleId;
     private String loginName; //登录账号
     private String loginPwd; //登录密码
 
@@ -81,5 +83,13 @@ public class User {
 
     public void setUserState(String userState) {
         this.userState = userState;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }

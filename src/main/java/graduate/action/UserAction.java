@@ -75,13 +75,11 @@ public class UserAction {
           ModelAndView modelAndView = new ModelAndView("user/pwdGetback");
           return modelAndView;
       }
-
       //跳转密码修改页面
       @RequestMapping("/updatePwdPage.do")
       public String ModifyPwd(HttpServletRequest request) {
           return "user/updatePwd";
       }
-
 
     //跳入主页面
 
@@ -89,6 +87,15 @@ public class UserAction {
 
     public ModelAndView GoMain(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("user/main");
+        return modelAndView;
+    }
+
+    //跳入主页面
+
+    @RequestMapping("/admin.do")
+
+    public ModelAndView GoAdmin(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView("user/admin");
         return modelAndView;
     }
 
@@ -220,6 +227,7 @@ public class UserAction {
             session.setMaxInactiveInterval(900);
             session.setAttribute("user", user);
             session.setAttribute("userName", user.getUserName());
+            session.setAttribute("roleId",user.getRoleId());
         }
         return result;
     }
