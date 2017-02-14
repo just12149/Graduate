@@ -99,7 +99,7 @@ public class AllTest {
         // newsService.queryById(2);
 
 
-       /* catalogDao.findCatalogByName("科技新闻");
+        catalogDao.findCatalogByName("科技新闻");
         catalogDao.findCatalogAll(1, 2);
         catalogDao.removeCatalog(10);
 
@@ -108,7 +108,7 @@ public class AllTest {
         catalog.setCatalogName("大秦网");
         catalog.setCreatedTime("2017-2-10");
         catalogDao.saveCatalog(catalog);
-       catalogDao.updateCatalog(catalog);*/
+       catalogDao.updateCatalog(catalog);
 
 
     }
