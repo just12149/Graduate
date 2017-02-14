@@ -12,6 +12,8 @@
         <result column="userState" property="userState" javaType="String"></result>
         <result column="loginTime" property="loginTime" javaType="String"></result>
         <result column="loginNumber" property="loginNumber" javaType="String"></result>
+
+        <result column="roleId" property="roleId" javaType="Integer"></result>
     </resultMap>
 
     <!--新增用户--> <!--useGeneratedKeys是开启使用自增的方式
