@@ -8,6 +8,7 @@
 <%
     String context = request.getContextPath();
     String userName = (String) session.getAttribute("userName");
+
     if (session.getAttribute("user") == null) {
         out.println("<script>alert('您还未登录，请先登录。');window.location.href='/user/loginPage.do';</script>");
     }
@@ -89,13 +90,15 @@
 
 </div>
 <div class="index_main index_width">
+
+
     <div class="index_nav">
-        <ul class="top_nav ">
+      <%--  <ul class="top_nav ">
             <li><a href="/index"><i class="iconfont icon-home"></i><span >系统首页</span></a></li>
 
             <li><a ><i class="iconfont icon-yonghu"></i><span><%=userName%></span></a></li>
             <li><a href="javascript:void(0)" onclick="logout()"><i class="iconfont icon-kechengzhuanhuafuwu"></i><span >注销</span></a></li>
-        </ul>
+        </ul>--%>
     </div>
     <div class="index_con clearfix">
         <div class="index_left">
@@ -123,24 +126,23 @@
                         <dt>娱乐新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
                     <dl class="syetem_management">
-                        <dt>生活百事<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt>教育新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
-                    <dl class="source">
-                        <dt>新闻管理<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
-                        <dd class="first_dd"><a href="<%=context%>/catlog/findCatlog.do">新闻栏目管理</a></dd>
-                        <dd><a href="#">新闻管理</a></dd>
-                    </dl>
+
                     <dl class="statistics">
                         <dt>用户管理<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
-                        <dd class="first_dd"><a href="#">查看个人信息</a></dd>
-                        <dd><a href="#">修改密码</a></dd>
-                        <dd><a href="#">意见反馈</a></dd>
+                        <dd class="first_dd"><a href="<%=context%>/user/userInfoPage.do">个人信息</a></dd>
+                        <dd><a href="<%=context%>/user/updatePwdPage.do">修改密码</a></dd>
+                        <dd><a href="<%=context%>/user/PwdGetBackPage.do">密码找回</a></dd>
+                        <dd><a href="<%=context%>/Echarts.jsp">数据支撑</a></dd>
                         <dd><a href="#">角色管理</a></dd>
+
+
                     </dl>
                     <dl class="statistics">
                         <dt>系统管理<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                         <dd class="first_dd"><a href="#"></a></dd>
-                        <dd><a href="#">配置信息</a></dd>
+                        <dd><a href="<%=context%>/error.jsp">配置信息</a></dd>
                         <dd><a href="#">意见反馈</a></dd>
                     </dl>
                 </div>

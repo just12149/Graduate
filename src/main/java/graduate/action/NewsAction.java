@@ -22,8 +22,8 @@ import java.util.Map;
 public class NewsAction {
 
 
-@Resource
-private NewsService newsService;
+    @Resource
+    private NewsService newsService;
 
 
     @RequestMapping("/New.do")
@@ -57,7 +57,7 @@ private NewsService newsService;
         if (news == null) {
             map.put("success", false);
         } else {
-            int state =newsService.updNews(news);
+            int state = newsService.updNews(news);
             System.out.println(state);
             if (state > 0) {
                 map.put("success", true);
@@ -86,29 +86,57 @@ private NewsService newsService;
         }
         return map;
     }
+
     @RequestMapping("newsdata.do")
-    public ModelAndView gonews(){
+    public ModelAndView goNews() {
         return new ModelAndView("news/newsdata");
     }
+
     /**
      * 新闻内容
+     *
      * @param newsId
      * @return
      */
     @ResponseBody
     @RequestMapping("/newsData.do")
-    public Map<String,Object> querynewsByid(Integer newsId,HttpServletRequest request){
+    public Map<String, Object> queryNewsContent(Integer newsId, HttpServletRequest request) {
         String path = request.getSession().getServletContext().getRealPath("upload");//文件路径
-        Map<String,Object> map=new HashMap<>();
-        List<News> list=null;
-        String url=null;
-        list=newsService.queryById(newsId);
-        if(list!=null){
-           url=list.get(0).getUrl();
+        Map<String, Object> map = new HashMap<>();
+        List<News> list = null;
+        String url = null;
+        list = newsService.queryById(newsId);
+        if (list != null) {
+            url = list.get(0).getUrl();
         }
-        map.put("url",url);
-        map.put("list",list);
-        map.put("success",true);
+        map.put("url", url);
+        map.put("list", list);
+        map.put("success", true);
         return map;
     }
+
+    @RequestMapping("newstypedata.do")
+    public ModelAndView goNewtitle() {
+        return new ModelAndView("news/newstypedata");
+    }
+
+    /**
+     * 根据新闻类型查询该类型所有新闻
+     * @param newsType
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("newsType.do")
+    public Map<String, Object> findNewByType(Integer newsType) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (newsType == null) {
+            map.put("success", false);
+        }
+        List newslist = newsService.findNewsByType(newsType);
+        map.put("success", true);
+        map.put("newslist", newslist);
+        return map;
+
+    }
+
 }

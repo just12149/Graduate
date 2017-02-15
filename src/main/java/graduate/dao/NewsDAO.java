@@ -26,4 +26,6 @@ public interface NewsDao {
     public int delNews(@Param("delnewsId") Integer delnewsId);
     public int updNews(@Param("news") News news);
     public List<News> queryByid(@Param("newsId") Integer newsId);
-}
+
+    public List<News> findNewsByType(@Param("newsType") Integer newsType);
+ }

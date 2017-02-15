@@ -51,35 +51,36 @@ public class UserAction {
         return modelAndView;
     }
 
-      //跳转会员私人信息页
-      @RequestMapping("/userInfoPage.do")
-      public ModelAndView userInfo(HttpServletRequest request) {
-          ModelAndView modelAndView = new ModelAndView("user/userInfo");
-          HttpSession session = request.getSession();
-          Map<String, Object> map = new HashMap<String, Object>();
-          if (session != null) {
-              User user = (User) session.getAttribute("user");
+    //跳转会员私人信息页
+    @RequestMapping("/userInfoPage.do")
+    public ModelAndView userInfo(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView("user/userInfo");
+        HttpSession session = request.getSession();
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (session != null) {
+            User user = (User) session.getAttribute("user");
 
-              Integer userId = user.getUserId();
-              UserInfo userInfo = userInfoService.findUserInfoByUserId(userId);
-              map.put("user", user);
-              map.put("userInfo", userInfo);
-              modelAndView.addAllObjects(map);
-          }
-          return modelAndView;
-      }
+            Integer userId = user.getUserId();
+            UserInfo userInfo = userInfoService.findUserInfoByUserId(userId);
+            map.put("user", user);
+            map.put("userInfo", userInfo);
+            modelAndView.addAllObjects(map);
+        }
+        return modelAndView;
+    }
 
-      //跳转密码找回页面
-      @RequestMapping("/PwdGetBackPage.do")
-      public ModelAndView PwdGetBack(HttpServletRequest request) {
-          ModelAndView modelAndView = new ModelAndView("user/pwdGetback");
-          return modelAndView;
-      }
-      //跳转密码修改页面
-      @RequestMapping("/updatePwdPage.do")
-      public String ModifyPwd(HttpServletRequest request) {
-          return "user/updatePwd";
-      }
+    //跳转密码找回页面
+    @RequestMapping("/PwdGetBackPage.do")
+    public ModelAndView PwdGetBack(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView("user/pwdGetback");
+        return modelAndView;
+    }
+
+    //跳转密码修改页面
+    @RequestMapping("/updatePwdPage.do")
+    public String ModifyPwd(HttpServletRequest request) {
+        return "user/updatePwd";
+    }
 
     //跳入主页面
 
@@ -227,7 +228,7 @@ public class UserAction {
             session.setMaxInactiveInterval(900);
             session.setAttribute("user", user);
             session.setAttribute("userName", user.getUserName());
-            session.setAttribute("roleId",user.getRoleId());
+            session.setAttribute("roleId", user.getRoleId());
         }
         return result;
     }
@@ -352,6 +353,7 @@ public class UserAction {
     public boolean UserInfoUpdate(HttpServletRequest request) {
         HttpSession session = request.getSession();
 
+        userService.findUserById(Integer.parseInt(request.getParameter("userId")));
         User user = userService.findUserById(Integer.parseInt(request.getParameter("userId")));
         String userId = request.getParameter("userId");
         System.out.println(userId);
@@ -364,7 +366,7 @@ public class UserAction {
         userInfo.setSex(Integer.parseInt(request.getParameter("sex")));
         userInfo.setTel(request.getParameter("tel"));
         try {
-            userService.updateUser(user,userInfo);
+            userService.updateUser(user, userInfo);
             userInfoService.updateUserInfo(userInfo);
             session.setAttribute("userName", request.getParameter("userName"));
             session.setAttribute("user", user);

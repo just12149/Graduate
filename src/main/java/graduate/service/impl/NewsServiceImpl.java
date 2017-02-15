@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
     @Resource
-    private NewsDao newsDAO;
+    private NewsDao newsDao;
     List<News> newsList = null;
     /**
      * 查找新闻列表
@@ -24,11 +24,11 @@ public class NewsServiceImpl implements NewsService {
     public   List<News> findAll(Page page,Integer newstype) {
        // List<News> newsList = null;
         if(newstype==null) {
-            newsList = newsDAO.findAll(page.getStart(), page.getRowPerPage());
+            newsList = newsDao.findAll(page.getStart(), page.getRowPerPage());
         }else {
-            newsList = newsDAO.findNews(page.getStart(), page.getRowPerPage(), newstype);
+            newsList = newsDao.findNews(page.getStart(), page.getRowPerPage(), newstype);
     }
-        Integer count = newsDAO.findCount(newstype);
+        Integer count = newsDao.findCount(newstype);
 
         page.setTotalNum(count);
         return newsList;
@@ -44,9 +44,9 @@ public class NewsServiceImpl implements NewsService {
     public int updNews(News news) {
         int state =0;
         if(news.getNewsId()==null) {
-            state = newsDAO.insertNews(news);
+            state = newsDao.insertNews(news);
         }else {
-            state = newsDAO.updNews(news);
+            state = newsDao.updNews(news);
         }
 
         return state;
@@ -55,13 +55,20 @@ public class NewsServiceImpl implements NewsService {
     //删除数据方法
     @Override
     public int delNews(Integer delnewsId) {
-        int state = newsDAO.delNews(delnewsId);
+        int state = newsDao.delNews(delnewsId);
         return state;
     }
 
     @Override
     public List<News> queryById(Integer newsId) {
-        List list=newsDAO.queryByid(newsId);
+        List list=newsDao.queryByid(newsId);
+        return list;
+    }
+
+    @Override
+
+    public List<News> findNewsByType(Integer newsType){
+        List list=newsDao.findNewsByType(newsType);
         return list;
     }
 }

@@ -25,7 +25,7 @@
         </if>
     </select>
 
-   <select id="findAll" resultMap="newsMap">
+    <select id="findAll" resultMap="newsMap">
         select * from db_news limit #{pageStart},#{pageEnd}
     </select>
 
@@ -86,4 +86,8 @@
     <select id="queryByid" resultMap="newsMap">
         select * from db_news WHERE newsId = #{newsId}
     </select>
+
+    <select id="findNewsByType" resultMap="newsMap">
+        SELECT * from  db_news WHERE  newsType=#{newsType}
+     </select>
 </mapper>

@@ -7,6 +7,9 @@
     int serverPort = request.getServerPort();
     String context = request.getContextPath();
     String basePath = scheme + "://" + serverName + ":" + serverPort + "/";
+    String userName = (String) session.getAttribute("userName");
+
+    Integer roleId =  (Integer)session.getAttribute("roleId");
     //String webName = DataCacheUtil.getWebConfig().getWebName();
     //String webLogo = DataCacheUtil.getWebConfig().getWebLogo();
 %>
@@ -124,7 +127,20 @@
                         $(".error-box").show();
                     } else {
                         $(".error-box").hide();
-                        window.location.href = '/user/main.do';
+                        if((<%=roleId%>==0)){
+                         window.location.href = '/user/admin.do';
+                         }
+                    else{
+                         window.location.href = '/user/main.do';
+                         }
+                       // window.location.href = '/user/main.do';
+                        /*if("admin1".equals(loginName)){
+                            window.location.href = '/user/admin.do';
+
+                        }else{
+                            window.location.href = '/user/main.do';
+                        }*/
+
                     }
                 }
             });

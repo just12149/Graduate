@@ -107,10 +107,28 @@
                     <div class="form-group" style="padding-top: 20px;">
                         <label class="col-sm-2 control-label">新闻类别:</label>
                         <select ng-init="news.newstype = types[0]" name="newstype" ng-model="news.newstype"
-                                ng-options="x for x in types">
+                                ng-options="x for x in types" >
                         </select>
 
                     </div>
+
+              <%-- <div class="form-group" style="padding-top: 20px;">
+                        <label class="col-sm-2 control-label">新闻类别:{{news.newstype}}</label>
+                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==1"
+                               ng-checked="true"   ng-value="1"/>科技新闻&nbsp;&nbsp;
+                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==2"
+                               ng-value="2"/>财经新闻&nbsp;&nbsp;
+                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==3"
+                               ng-value="3"/>体育新闻&nbsp;&nbsp;
+                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==4"
+                               ng-value="4"/>民生新闻 &nbsp;&nbsp;
+                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==5"
+                               ng-value="5"/>娱乐新闻&nbsp;&nbsp;
+                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==6"
+                               ng-value="6"/>教育新闻&nbsp;&nbsp;
+                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==7"
+                               ng-value="4"/>民生新闻
+                    </div>--%>
                     <div class="form-group" style="padding-top: 20px;">
                         <label class="col-sm-2 control-label">创建时间:</label>
 

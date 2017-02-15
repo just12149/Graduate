@@ -24,7 +24,7 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     /* @Resource(name="userao")*/
     @Resource
-    private UserDao userDAO;
+    private UserDao userDao;
 
     UserInfoDao userInfoDAO;
 
@@ -36,12 +36,12 @@ public class UserServiceImpl implements UserService {
         this.userInfoDAO = userInfoDAO;
     }
 
-    public UserDao getUserDAO() {
-        return userDAO;
+    public UserDao getUserDao() {
+        return userDao;
     }
 
-    public void setUserDAO(UserDao userDAO) {
-        this.userDAO = userDAO;
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     /**
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackFor = {Exception.class})
     public void updateUser(User user, UserInfo userInfo) {
-        userDAO.updateUser(user);
+        userDao.updateUser(user);
     }
 
     /**
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = {Exception.class})
     public void saveUser(User user) {
         user.setLoginTime(DateUtils.getCurrentTime(DateUtils.FORMAT_19));
-        userDAO.insertUser(user);
+        userDao.insertUser(user);
 
        /* userInfo.setInfoId(user.getUserId());
         userInfo.setUserId(user.getUserId());
@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackFor = {Exception.class})
     public void removeUser(Integer userId) {
-        userDAO.deleteUser(userId);
+        userDao.deleteUser(userId);
     }
 
     /**
@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserService {
     public User findUserById(Integer userId) {
 
 
-        return userDAO.selectUserById(userId);
+        return userDao.selectUserById(userId);
 
     }
 
@@ -109,7 +109,7 @@ public class UserServiceImpl implements UserService {
 
     public User findUserByLoginName(String loginName) {
 
-        User user = userDAO.selectUserByLoginName(loginName);
+        User user = userDao.selectUserByLoginName(loginName);
         return user;
     }
 
@@ -128,7 +128,7 @@ public class UserServiceImpl implements UserService {
             param.put("userState", userState);
         }
 
-        List<User> userList = userDAO.selectUserByStateList(userState);
+        List<User> userList = userDao.selectUserByStateList(userState);
         return userList;
     }
 

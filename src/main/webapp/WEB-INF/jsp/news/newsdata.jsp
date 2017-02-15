@@ -26,8 +26,8 @@
    </tr>
   <tr>
     <td>
-      <span style="margin-left: 90px;">{{list.author}}</span><span style="padding-left: 16px;">{{list.createdTime}}</span>
-      <%--<span ng-bind="list.createdTime" style="margin-left: 70%;color: #c25a3d"></span>  <span  ng-bind="list.author" style="margin-left: 80%;color: #b152c2"></span>--%>
+      <span style="margin-left: 90px;">{{list.author}}</span>
+      <span style="padding-left: 16px;">{{list.createdTime}}</span>
     </td>
   </tr>
   <tr>

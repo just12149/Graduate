@@ -20,4 +20,6 @@ public interface NewsService {
     public int delNews(Integer delnewsId);
 
     public List<News> queryById(Integer newsId);
+
+    public List<News>  findNewsByType(Integer newsType);
 }

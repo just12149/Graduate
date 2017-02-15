@@ -4,6 +4,7 @@ import graduate.dao.CatalogDao;
 import graduate.dao.NewsDao;
 import graduate.dao.UserDao;
 import graduate.model.Catalog;
+import graduate.model.News;
 import graduate.service.CatalogService;
 import graduate.service.NewsService;
 import graduate.service.UserService;
@@ -13,19 +14,26 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class AllTest {
-
+//    @Resource
+//    UserDao userDao;
+//    @Resource
+//    UserService userService;
 
     @Resource
-    CatalogDao catalogDao;
+    NewsDao newsDao;
     @Resource
-    CatalogService catalogService;
+    NewsService newsService;
 
-
+//    @Resource
+//    CatalogDao catalogDao;
+//    @Resource
+//    CatalogService catalogService;
 
 
    /* @Resource
@@ -99,7 +107,7 @@ public class AllTest {
         // newsService.queryById(2);
 
 
-        catalogDao.findCatalogByName("科技新闻");
+        /*catalogDao.findCatalogByName("科技新闻");
         catalogDao.findCatalogAll(1, 2);
         catalogDao.removeCatalog(10);
 
@@ -108,8 +116,8 @@ public class AllTest {
         catalog.setCatalogName("大秦网");
         catalog.setCreatedTime("2017-2-10");
         catalogDao.saveCatalog(catalog);
-       catalogDao.updateCatalog(catalog);
-
-
+       catalogDao.updateCatalog(catalog);*/
+//    List<News> news= newsService.findNewsByType(6);
+//        System.out.println(news.toString());
     }
 }
