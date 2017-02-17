@@ -70,7 +70,7 @@
 
     <%--修改,新增弹出页面--%>
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <%-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -114,32 +114,6 @@
                         </select >
                     </div>
 
-              <%-- <div class="form-group" style="padding-top: 20px;">
-                        <label class="col-sm-2 control-label">新闻类别:{{news.newstype}}</label>
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==1"
-                               ng-checked="true"   ng-value="1"/>科技新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==2"
-                               ng-value="2"/>财经新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==3"
-                               ng-value="3"/>体育新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==4"
-                               ng-value="4"/>民生新闻 &nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==5"
-                               ng-value="5"/>娱乐新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==6"
-                               ng-value="6"/>教育新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==7"
-                               ng-value="4"/>民生新闻
-                    </div>--%>
-                    <div class="form-group" style="padding-top: 20px;">
-                        <label class="col-sm-2 control-label">创建时间:</label>
-
-                        <div class="col-sm-9">
-                            <input name="createdTime" type="text" class="form-control" ng-model="news.createdTime"
-                                   value="news.createdTime" required/>
-                        </div>
-                    </div>
-
                     <div class="form-group" style="padding-top: 20px;">
                         <label class="col-sm-2 control-label">新闻内容:</label>
                         <div class="col-sm-9">
@@ -156,11 +130,11 @@
             </div>
 
         </div>
-    </div>
+    </div>--%>
 
 
 
-    <%--<!--  模态框 新增/编辑页面 开始  -->
+    <!--  模态框 新增/编辑页面 开始  -->
     <div class="modal fade" id="myModal" tabindex="100" role="dialog" aria-labelledby="editMainContentLabel">
         <div class="modal-dialog" role="document" style="width: 1000px">
             <div class="modal-content">
@@ -225,32 +199,7 @@
                 </div>
             </div>
         </div>
-    </div>--%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
 
 </div>
 </body>
