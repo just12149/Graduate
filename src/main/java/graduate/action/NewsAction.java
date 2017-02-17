@@ -26,6 +26,9 @@ public class NewsAction {
     private NewsService newsService;
 
 
+
+
+
     @RequestMapping("/New.do")
     public ModelAndView PageRequest(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("news/New");
@@ -126,15 +129,15 @@ public class NewsAction {
      * @return
      */
     @ResponseBody
-    @RequestMapping("newsType.do")
+    @RequestMapping("/newsType.do")
     public Map<String, Object> findNewByType(Integer newsType) {
         Map<String, Object> map = new HashMap<String, Object>();
         if (newsType == null) {
             map.put("success", false);
         }
-        List newslist = newsService.findNewsByType(newsType);
+        List newsList = newsService.findNewsByType(newsType);
         map.put("success", true);
-        map.put("newslist", newslist);
+        map.put("newsList", newsList);
         return map;
 
     }

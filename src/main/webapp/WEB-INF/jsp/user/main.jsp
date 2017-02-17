@@ -9,21 +9,22 @@
     String context = request.getContextPath();
     String userName = (String) session.getAttribute("userName");
 
-    if (session.getAttribute("user") == null) {
+   /* if (session.getAttribute("user") == null) {
         out.println("<script>alert('您还未登录，请先登录。');window.location.href='/user/loginPage.do';</script>");
-    }
+    }*/
 %>
 
 <!doctype html>
-<html>
+<html ng-app="mainApp" ng-controller="mainCtrl">
 <head>
+
     <title>新闻发布管理系统</title>
     <style>
         .media{ border-bottom: 1px dashed #ccc;padding: 5px 0 0 15px}
     </style>
-
     <jsp:include page="/WEB-INF/jsp/include/jquery.jsp"></jsp:include>
-
+    <%--<jsp:include page="/WEB-INF/jsp/include/boostrap3.jsp"></jsp:include>--%>
+    <jsp:include page="/WEB-INF/jsp/include/angular.jsp"></jsp:include>
 
     <link rel="stylesheet" type="text/css" href="<%=context%>/resources/css/base.css" />
     <link rel="stylesheet" type="text/css" href="<%=context%>/resources/css/styles.css" />
@@ -32,8 +33,9 @@
     <script  src="<%=context%>/resources/js/banner.js"></script>
     <script src="<%=context%>/resources/js/stellar.js"></script>
     <script  src="<%=context%>/resources/js/jquery.event.drag-1.5.min.js"></script>
-
     <script  src="<%=context%>/resources/js/main.min.js"></script>
+    <script src="<%=context%>/resources/javascript/user/mainController.js"></script>
+    <script src="<%=context%>/resources/javascript/user/mainService.js"></script>
 
     <style>
         .index_city_network ul li a.active{
@@ -107,7 +109,7 @@
                 <div class="leftsidebar_box">
                     <div class="line"></div>
                     <dl class="system_log">
-                        <dt >科技新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt><a href="" ng-click="keji()">科技新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
 
                     <dl class="channel">
@@ -148,8 +150,22 @@
                 </div>
             </div>
         </div>
-        <div class="index_center">
+        <div class="index_center" style="text-align: center;position: absolute;margin-top:5px;margin-left: 300px;background-color:white; width: 60%;">
+                <table  ng-repeat="news in newsList" style="width: 100%;background-color:white;font-size: 20px;">
+                   <tr style="border:1px solid #b2adc2;">
+                       <td>
+                    <tr>
+                        <td colspan="2" style="text-align: center;color: blue" ng-bind="news.title"></td>
 
+                    </tr>
+                    <tr style="color: #c213ad;">
+                        <td ng-bind="news.createdTime"></td>
+                        <td><button style="width:60px;height: 30px; background-color: #0074d9;color:white; font-size: 20px;">READ</button></td>
+                    </tr>
+                       </td>
+                   </tr>
+
+                </table>
         </div>
         <div class="index_right">
             <div class="inedx_news">

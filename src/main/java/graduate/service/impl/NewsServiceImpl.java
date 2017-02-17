@@ -1,12 +1,16 @@
 package graduate.service.impl;
 
+
 import graduate.dao.NewsDao;
 import graduate.model.News;
 import graduate.service.NewsService;
 import graduate.utils.page.Page;
+
 import org.springframework.stereotype.Service;
 
+
 import javax.annotation.Resource;
+
 import java.util.List;
 
 /**
@@ -14,8 +18,13 @@ import java.util.List;
  */
 @Service
 public class NewsServiceImpl implements NewsService {
+
     @Resource
     private NewsDao newsDao;
+
+
+
+
     List<News> newsList = null;
     /**
      * 查找新闻列表
@@ -62,6 +71,7 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public List<News> queryById(Integer newsId) {
         List list=newsDao.queryByid(newsId);
+
         return list;
     }
 
@@ -69,6 +79,7 @@ public class NewsServiceImpl implements NewsService {
 
     public List<News> findNewsByType(Integer newsType){
         List list=newsDao.findNewsByType(newsType);
+
         return list;
     }
 }
