@@ -108,7 +108,9 @@
 
              }*/
             else {
-                $scope.user = {
+
+                alert("添加新闻");
+                $scope.news = {
                     title: "请输入姓名",
                     author: 0,
                     newstype: 1
