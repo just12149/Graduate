@@ -9,6 +9,8 @@ import java.util.List;
  * Created by ${niuting} on 2017/2/3.
  */
 public interface NewsService {
+
+
     public   List<News> findAll(Page page, Integer newsType);
 
     /**

@@ -117,7 +117,7 @@ public class AllTest {
         catalog.setCreatedTime("2017-2-10");
         catalogDao.saveCatalog(catalog);
        catalogDao.updateCatalog(catalog);*/
-//    List<News> news= newsService.findNewsByType(6);
-//        System.out.println(news.toString());
+    List<News> news= newsService.findNewsByType(6);
+        System.out.println(news.toString());
     }
 }

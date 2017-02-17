@@ -15,15 +15,16 @@
 %>
 
 <!doctype html>
-<html>
+<html ng-app="mainApp" ng-controller="mainCtrl">
 <head>
+
     <title>新闻发布管理系统</title>
     <style>
         .media{ border-bottom: 1px dashed #ccc;padding: 5px 0 0 15px}
     </style>
-
     <jsp:include page="/WEB-INF/jsp/include/jquery.jsp"></jsp:include>
-
+    <%--<jsp:include page="/WEB-INF/jsp/include/boostrap3.jsp"></jsp:include>--%>
+    <jsp:include page="/WEB-INF/jsp/include/angular.jsp"></jsp:include>
 
     <link rel="stylesheet" type="text/css" href="<%=context%>/resources/css/base.css" />
     <link rel="stylesheet" type="text/css" href="<%=context%>/resources/css/styles.css" />
@@ -32,8 +33,9 @@
     <script  src="<%=context%>/resources/js/banner.js"></script>
     <script src="<%=context%>/resources/js/stellar.js"></script>
     <script  src="<%=context%>/resources/js/jquery.event.drag-1.5.min.js"></script>
-
     <script  src="<%=context%>/resources/js/main.min.js"></script>
+    <script src="<%=context%>/resources/javascript/user/mainController.js"></script>
+    <script src="<%=context%>/resources/javascript/user/mainService.js"></script>
 
     <style>
         .index_city_network ul li a.active{
@@ -107,7 +109,7 @@
                 <div class="leftsidebar_box">
                     <div class="line"></div>
                     <dl class="system_log">
-                        <dt >科技新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt><a href="" ng-click="keji()">科技新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
 
                     <dl class="channel">
