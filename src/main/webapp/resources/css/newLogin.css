@@ -37,7 +37,7 @@ a:hover { color:#00a2e4; text-decoration:underline;}
 .login { width:450px; margin:0px auto;}
 .login_top { height:170px; position:relative;}
 .login_top i { display:block; width:170px; height:170px; margin:0px auto; position:absolute; left:50%; top:0px; margin-left:-85px; z-index:1; background:url(../images/yuanquan.png) no-repeat center;-webkit-transition: 3000s; -webkit-transition: -webkit-transform 3000s ease-out; transition: transform 3000s ease-out; -moz-transition: -moz-transform 3000s ease-out;}
-.login_top b { display:block; width:170px; height:170px; margin:0px auto; position:absolute; left:50%; top:0px; margin-left:-85px; z-index:1; background:url(../images/shu.png) ;}
+.login_top b { display:block; width:170px; height:170px; margin:0px auto; position:absolute; left:50%; top:0px; margin-left:-85px; z-index:1; }
 body:hover .login_top i { transform: rotateZ(36000deg); -webkit-transform: rotateZ(36000deg); -moz-transform: rotateZ(36000deg);}
 .login_con { height:420px; padding-top:40px; padding-right:40px; background:url(../images/login_con.png) ;}
 .lohin_tit { height:45px; background:url(../images/userLogo.png) no-repeat 100px top; margin-bottom:40px;}
