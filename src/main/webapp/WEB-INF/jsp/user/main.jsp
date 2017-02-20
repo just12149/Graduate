@@ -150,21 +150,21 @@
                 </div>
             </div>
         </div>
-        <div class="index_center" style="text-align: left;position: absolute;margin-top:5px;margin-left: 300px;background-color:white; width: 60%;">
+        <div class="index_center" style="text-align: left;position: absolute;margin-top:5px;margin-left: 230px; width: 60%;">
                 <table  ng-repeat="news in newsList" style="width: 100%;background-color:white;font-size: 20px;">
-                   <tr style="border:1px solid #b2adc2;">
-                       <td>
                     <tr>
-                        <td colspan="2" style="color: blue" ng-bind="news.title"></td>
-
-                    </tr>
-                    <tr style="color: #c213ad;">
+                        <td ng-bind="news.title"></td>
                         <td ng-bind="news.createdTime"></td>
-                        <td><button style="width:50px;height: 20px; background-color: #0074d9;color:white;border: 0; font-size: 14px;">READ</button></td>
                     </tr>
-                       </td>
-                   </tr>
 
+                    <tr>
+
+                       <td ><a href="/news/newsdata.do" ><font  color="#8DB6CD">查看详情</font></a></td>
+
+                        <td ng-bind="news.newsId"></td>
+                        <%--<td ng-bind="news.url"   ></td>--%>
+                        <%--<td><button style="width:50px;height: 20px; background-color: #0074d9;color:white;border: 0; font-size: 14px;">READ</button></td>--%>
+                    </tr>
                 </table>
         </div>
         <div class="index_right">

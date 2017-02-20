@@ -9,7 +9,7 @@
     String basePath = scheme + "://" + serverName + ":" + serverPort + "/";
     String userName = (String) session.getAttribute("userName");
 
-    Integer roleId =  (Integer)session.getAttribute("roleId");
+    Integer roleId = (Integer) session.getAttribute("roleId");
     //String webName = DataCacheUtil.getWebConfig().getWebName();
     //String webLogo = DataCacheUtil.getWebConfig().getWebLogo();
 %>
@@ -126,13 +126,14 @@
                         $(".error-box").html(dataJson.msg);
                         $(".error-box").show();
                     } else {
+                        alert("error");
                         $(".error-box").hide();
-                        if((<%=roleId%>==0){
-                         window.location.href = '/user/admin.do';
-                         }
-                        else{
-                         window.location.href = '/user/main.do';
-                         }
+                        if ((<%=roleId%> == 1) {
+                            window.location.href = '/user/main.do';
+                        }
+                        else {
+                            window.location.href = '/user/admin.do';
+                        }
 
                     }
                 }
@@ -187,13 +188,14 @@
             <form action="/user/login.do">
                 <div class="lohin_tit"></div>
                 <ul class="lohin_web">
-                    <li><input name="loginName" id="loginName" required="" type="text" aria-label="姓名" placeholder="姓名" onfocus="return txtFocus();" onblur="return txtBlur();">
+                    <li><input name="loginName" id="loginName" required="" type="text" aria-label="姓名" placeholder="姓名"
+                               onfocus="return txtFocus();" onblur="return txtBlur();">
                     </li>
                     <input name="loginPwd" id="loginPwd" required="" type="password" aria-label="密码"
-                               placeholder="密码（不少于 6 位）"   width="200px">  </li>
+                           placeholder="密码（不少于 6 位）" width="200px">  </li>
 
-                    记住我 &nbsp;<input  name="remeberMe" id="remeberMe" required="" type="checkbox" aria-label="记住"
-                                 placeholder="记住我">
+                    记住我 &nbsp;<input name="remeberMe" id="remeberMe" required="" type="checkbox" aria-label="记住"
+                                     placeholder="记住我">
 
 
                     <li>
@@ -222,8 +224,8 @@
     </div>
 
 </div>
-<div class="footer">Copyright@2012 小型新闻发布管理系统<span>|</span>陕ICP备11007473号</div>
 
+<div class="footer">Copyright@2012 小型新闻发布管理系统<span>|</span>陕ICP备11007473号</div>
 
 </body>
 </html>

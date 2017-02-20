@@ -20,21 +20,14 @@ import java.util.Map;
 @Controller
 @RequestMapping("/news")
 public class NewsAction {
-
-
     @Resource
     private NewsService newsService;
-
-
-
-
 
     @RequestMapping("/New.do")
     public ModelAndView PageRequest(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("news/New");
         return modelAndView;
     }
-
 
     /**
      * 使用json查询数据
@@ -125,17 +118,18 @@ public class NewsAction {
 
     /**
      * 根据新闻类型查询该类型所有新闻
-     * @param newsType
+     * @param catalogId
      * @return
      */
     @ResponseBody
     @RequestMapping("/newsType.do")
-    public Map<String, Object> findNewByType(Integer newsType) {
+    public Map<String, Object> findNewByType(Integer catalogId) {
+
         Map<String, Object> map = new HashMap<String, Object>();
-        if (newsType == null) {
+        if (catalogId == null) {
             map.put("success", false);
         }
-        List newsList = newsService.findNewsByType(newsType);
+        List newsList = newsService.findNewsByType(catalogId);
         map.put("success", true);
         map.put("newsList", newsList);
         return map;

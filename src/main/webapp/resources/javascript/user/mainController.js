@@ -5,7 +5,7 @@
     var mainModule=angular.module("mainApp",["mainService"]);
     mainModule.controller("mainCtrl",function($scope,myService){
         $scope.doClick=function(num){
-            myService.newsType({newsType:num}).success(function(data){
+            myService.newsType({catalogId:num}).success(function(data){
                 if(data.success){
                     $scope.newsList=data.newsList;
                 }
