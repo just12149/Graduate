@@ -192,8 +192,8 @@
                     <input name="loginPwd" id="loginPwd" required="" type="password" aria-label="密码"
                                placeholder="密码（不少于 6 位）"   width="200px">  </li>
 
-                    记住我 &nbsp;<input  name="remeberMe" id="remeberMe" required="" type="checkbox" aria-label="记住"
-                                 placeholder="记住我">
+                    <%--记住我 &nbsp;<input  name="remeberMe" style="width: 10px;height: 10px;" id="remeberMe" required="" type="checkbox" aria-label="记住"--%>
+                                 <%--placeholder="记住我">--%>
 
 
                     <li>
