@@ -70,7 +70,7 @@
 
     <%--修改,新增弹出页面--%>
 
-    <%--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <%-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -108,36 +108,10 @@
 
                     <div class="form-group" style="padding-top: 20px;">
                         <label class="col-sm-2 control-label">新闻类别:</label>
-                        <select ng-init="news.newstype = types[0]" name="newstype" ng-model="news.newstype"
-                                ng-options="x for x in types" >
-                        </select>
-
-                    </div>
-
-              &lt;%&ndash; <div class="form-group" style="padding-top: 20px;">
-                        <label class="col-sm-2 control-label">新闻类别:{{news.newstype}}</label>
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==1"
-                               ng-checked="true"   ng-value="1"/>科技新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==2"
-                               ng-value="2"/>财经新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==3"
-                               ng-value="3"/>体育新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==4"
-                               ng-value="4"/>民生新闻 &nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==5"
-                               ng-value="5"/>娱乐新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==6"
-                               ng-value="6"/>教育新闻&nbsp;&nbsp;
-                        <input type="radio" name="groupNum" ng-model="news.newstype" ng-checked="news.newstype==7"
-                               ng-value="4"/>民生新闻
-                    </div>&ndash;%&gt;
-                    <div class="form-group" style="padding-top: 20px;">
-                        <label class="col-sm-2 control-label">创建时间:</label>
-
-                        <div class="col-sm-9">
-                            <input name="createdTime" type="text" class="form-control" ng-model="news.createdTime"
-                                   value="news.createdTime" required/>
-                        </div>
+                        <select ng-model = "news.newstype" name="newstype"
+                                ng-init="news.newstype = Catalogs[0]"
+                                ng-options = "a.id as a.name group by a.type for a in Catalogs" >
+                        </select >
                     </div>
 
                     <div class="form-group" style="padding-top: 20px;">
@@ -167,7 +141,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" ng-click="closeWin()">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="editMainContentLabel">编辑内容</h4>
+                    <h4 class="modal-title" id="editMainContentLabel">编辑新闻内容</h4>
                 </div>
                 <div class="modal-body form-inline" style="height:680px;overflow-y: auto">
                     <form id="editForm" class="form-inline">
@@ -175,9 +149,9 @@
                             <tr>
                                 <td align="left" >
                                     <div class="form-group">
-                                        <input type="hidden" id="mainId" name="mainId" ng-model="main.mainId"/>
+                                        <input type="hidden" id="newsId" name="newsId" ng-model="news.newsId"/>
                                         <label for="title">标题<span style="color: red;">*</span></label>
-                                        <input type="text" name="title" class="form-control" id="title" ng-model="main.title" ng-blur="checkTitle()">
+                                        <input type="text" name="title" class="form-control" id="title" ng-model="news.title" ng-blur="checkTitle()">
                                         <span id="titleSpan" style="color: #a94442;display: none;">标题不能为空!</span>
                                     </div>
                                 </td>
@@ -186,7 +160,7 @@
                                 <td align="left" >
                                     <div class="form-group">
                                         <label for="subtitle">副标题</label>
-                                        <input type="text" name="subtitle" class="form-control" id="subtitle" ng-model="main.subtitle">
+                                        <input type="text" name="subtitle" class="form-control" id="subtitle" ng-model="news.subtitle">
                                     </div>
                                 </td>
                             </tr>
@@ -194,34 +168,13 @@
                                 <td align="left" >
                                     <div class="form-group">
                                         <label for="subtitle">作者</label>
-                                        <input type="text" name="author" class="form-control" id="author" ng-model="main.author">
+                                        <input type="text" name="author" class="form-control" id="author" ng-model="news.author">
                                     </div>
-                                </td>
+                                </td>news
                             </tr>
-                            <tr>
-                                <td align="left" >
-                                    <div class="form-group">
-                                        <label for="subtitle">排序号(从大到小)</label>
-                                        <input type="text" name="mainOrder" class="form-control" id="mainOrder" ng-model="main.mainOrder">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr ng-repeat="label in labelFromList">
-                                <td align="left" >
-                                    <div class="form-group">
-                                        <label for="{{label.labelCode}}">{{label.labelName}}</label>
-                                        <input type="text" name="{{label.labelCode}}" class="form-control" id="{{label.labelCode}}" ng-model="label.labelValue">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left" >
-                                    <div class="form-group">
-                                        <label for="attachment">附件</label>
-                                        <input type="text" name="attachment" class="form-control" id="attachment" ng-model="attachment">
-                                    </div>
-                                </td>
-                            </tr>
+
+
+
                             <tr>
                                 <td align="left" >
                                     <div class="form-group">
@@ -247,31 +200,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 </body>

@@ -127,19 +127,12 @@
                         $(".error-box").show();
                     } else {
                         $(".error-box").hide();
-                        if((<%=roleId%>==0)){
+                        if((<%=roleId%>==0){
                          window.location.href = '/user/admin.do';
                          }
-                    else{
+                        else{
                          window.location.href = '/user/main.do';
                          }
-                       // window.location.href = '/user/main.do';
-                        /*if("admin1".equals(loginName)){
-                            window.location.href = '/user/admin.do';
-
-                        }else{
-                            window.location.href = '/user/main.do';
-                        }*/
 
                     }
                 }
@@ -158,20 +151,32 @@
         function toPassGetBack() {
             window.location.href = "<%=context%>/user/PwdGetBackPage.do";
         }
+
+        function txtFocus() {
+            var e = window.event;
+            var obj = e.srcElement;   //当前对象
+            obj.style.background = "#ffff66";
+        }
+
+        function txtBlur() {
+            var e = window.event;
+            var obj = e.srcElement;
+            obj.style.background = "#ffffff";
+        }
     </script>
 </head>
 <body>
 <div class="top">
     <span class="logo"></span>
     <dl class="top_nav">
-        <dd><a>返回首页</a></dd>
+
         <span>|</span>
         <dd><a href="<%=context%>/user/registPage.do">还没有账号</a></dd>
         <span>|</span>
         <dd><a href="<%=context%>/user/PwdGetBackPage.do">找回密码</a></dd>
         <span>|</span>
         <dd><a href="<%=context%>/user/main.do">随便看看</a></dd>
-        <dt><a >联系我们</a></dt>
+
     </dl>
 </div>
 
@@ -182,7 +187,7 @@
             <form action="/user/login.do">
                 <div class="lohin_tit"></div>
                 <ul class="lohin_web">
-                    <li><input name="loginName" id="loginName" required="" type="text" aria-label="姓名" placeholder="姓名">
+                    <li><input name="loginName" id="loginName" required="" type="text" aria-label="姓名" placeholder="姓名" onfocus="return txtFocus();" onblur="return txtBlur();">
                     </li>
                     <input name="loginPwd" id="loginPwd" required="" type="password" aria-label="密码"
                                placeholder="密码（不少于 6 位）"   width="200px">  </li>
