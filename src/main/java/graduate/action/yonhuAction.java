@@ -25,10 +25,12 @@ import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/yonhu")
-public class yonhuAction {
+public class YonhuAction {
 
-    @Resource UserService userService;
-    @Resource UserInfoService  userInfoService;
+    @Resource
+    UserService userService;
+    @Resource
+    UserInfoService  userInfoService;
 
 
     //验证会员登录
