@@ -2,6 +2,9 @@
 
 
 <%
+
+    Integer roleId = (Integer) session.getAttribute("roleId");
+
     String scheme = request.getScheme();
     String serverName = request.getServerName();
     int serverPort = request.getServerPort();
@@ -14,6 +17,12 @@
 <head>
     <title>用户中心登录</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/newLogin.css">
+
+    <style type="text/css">
+        input:focus {
+            background-color: #EEE9BF;
+        }
+    </style>
     <jsp:include page="/WEB-INF/jsp/include/jquery.jsp"></jsp:include>
     <jsp:include page="/WEB-INF/jsp/include/boostrap3.jsp"></jsp:include>
     <jsp:include page="/WEB-INF/jsp/include/jquery.jsp"></jsp:include>
@@ -107,6 +116,8 @@
                 $(".error-box").show();
                 return false;
             }
+
+
             $.ajax({
                 url: "/user/login.do",
                 type: 'post',
@@ -124,7 +135,11 @@
                         $(".error-box").show();
                     } else {
                         $(".error-box").hide();
-                        window.location.href = '/user/main.do';
+                            if(<%=roleId%>==1){
+                            window.location.href = '/user/main.do';
+                            }else{
+                            window.location.href = '/user/admin.do';
+                            }
                     }
                 }
             });
@@ -142,20 +157,33 @@
         function toPassGetBack() {
             window.location.href = "<%=context%>/user/PwdGetBackPage.do";
         }
+
+        //获取焦点输入框改变属性
+        function txtFocus() {
+            var e = window.event;
+            var obj = e.srcElement;   //当前对象
+            obj.style.background = "#ffff66";
+        }
+        //
+        function txtBlur() {
+            var e = window.event;
+            var obj = e.srcElement;
+            obj.style.background = "#ffffff";
+        }
+
+
     </script>
 </head>
 <body>
 <div class="top">
     <span class="logo"></span>
     <dl class="top_nav">
-        <dd><a>返回首页</a></dd>
         <span>|</span>
         <dd><a href="<%=context%>/user/registPage.do">还没有账号</a></dd>
         <span>|</span>
         <dd><a href="<%=context%>/user/PwdGetBackPage.do">找回密码</a></dd>
         <span>|</span>
         <dd><a href="<%=context%>/user/main.do">随便看看</a></dd>
-        <dt><a >联系我们</a></dt>
     </dl>
 </div>
 
@@ -168,11 +196,12 @@
                 <ul class="lohin_web">
                     <li><input name="loginName" id="loginName" required="" type="text" aria-label="姓名" placeholder="姓名">
                     </li>
-                    <input name="loginPwd" id="loginPwd" required="" type="password" aria-label="密码"
-                           placeholder="密码（不少于 6 位）"   width="200px">  </li>
 
-                    记住我 &nbsp;<input  name="remeberMe" id="remeberMe" required="" type="checkbox" aria-label="记住"
-                                      placeholder="记住我">
+                    <li><input name="loginPwd" id="loginPwd" required="" type="password" aria-label="密码"
+                               placeholder="密码（不少于 6 位）" width="200px">
+                        <%--记住我 &nbsp;<input  name="remeberMe" id="remeberMe" required="" type="checkbox" aria-label="记住"--%>
+                        <%--placeholder="记住我">--%>
+                    </li>
 
 
                     <li>
@@ -201,7 +230,7 @@
     </div>
 
 </div>
-<div class="footer">Copyright@2012 小型新闻发布管理系统<span>|</span>陕ICP备11007473号</div>
+<div class="footer">Copyright@2017 小型新闻发布管理系统<span>|</span>陕ICP备11007473号</div>
 
 
 </body>
