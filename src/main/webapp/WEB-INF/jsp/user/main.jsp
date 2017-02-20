@@ -109,26 +109,26 @@
                 <div class="leftsidebar_box">
                     <div class="line"></div>
                     <dl class="system_log">
-                        <dt><a href="" ng-click="keji()">科技新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt><a href="" ng-click="doClick(1)">科技新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
 
                     <dl class="channel">
-                        <dt>财经新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt><a href="" ng-click="doClick(2)"> 财经新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
 
                     <dl class="app">
-                        <dt >体育新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt><a href="" ng-click="doClick(3)">体育新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
 
                     <dl class="custom">
-                        <dt >民生新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt><a href="" ng-click="doClick(4)">民生新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
 
                     <dl class="cloud">
-                        <dt>娱乐新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt><a href="" ng-click="doClick(5)">娱乐新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
                     <dl class="syetem_management">
-                        <dt>教育新闻<img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
+                        <dt><a href="" ng-click="doClick(6)">教育新闻</a><img src="<%=context%>/resources/images/left/select_xl01.png"></dt>
                     </dl>
 
                     <dl class="statistics">
@@ -155,7 +155,7 @@
                    <tr style="border:1px solid #b2adc2;">
                        <td>
                     <tr>
-                        <td colspan="2" style="text-align: left;color: blue" ng-bind="news.title"></td>
+                        <td colspan="2" style="color: blue" ng-bind="news.title"></td>
 
                     </tr>
                     <tr style="color: #c213ad;">
