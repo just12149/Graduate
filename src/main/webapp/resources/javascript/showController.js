@@ -6,7 +6,7 @@
     app.controller("showCtrl",function($scope,myService){
         myService.querynewsByid({newsId:2}).success(function(data){
             if(data.success){
-               $scope.groupList=data.list;
+               $scope.news=data.news;
             }
         })
     })

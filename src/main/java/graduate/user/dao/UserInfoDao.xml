@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="graduate.user.dao.UserInfoDao">
+
+    <resultMap id="userinfoMap" type="graduate.user.model.UserInfo">
+        <result column="infoId" property="infoId" javaType="Integer"></result>
+        <result column="userId" property="userId" javaType="Integer"></result>
+        <result column="age" property="age" javaType="int"></result>
+        <result column="sex" property="sex" javaType="int"></result>
+        <result column="tel" property="tel" javaType="String"></result>
+        <result column="mail" property="mail" javaType="String"></result>
+        <result column="address" property="address" javaType="String"></result>
+        <result column="education" property="education" javaType="int"></result>
+
+
+    </resultMap>
+
+    <!--
+        功能说明：新增用户信息
+    -->
+    <insert id="insertUserInfo" useGeneratedKeys="true" keyProperty="userInfo.infoId">
+        INSERT INTO db_userinfo
+        (
+        userId,
+        sex,
+        age,
+        tel,
+        mail,
+        address,
+        education
+        )
+        VALUES
+        (
+
+        #{userInfo.userId},
+        #{userInfo.sex},
+        #{userInfo.age},
+        #{userInfo.tel},
+        #{userInfo.mail},
+        #{userInfo.address},
+         #{userInfo.education}
+        )
+    </insert>
+    <!--
+        功能说明：删除用户信息
+    -->
+    <delete id="deleteUserInfo">
+        DELETE FROM
+         db_userinfo
+        WHERE
+         userId = #{userId}#
+    </delete>
+    <!--
+        功能说明：根据用户Id查询用户信息
+    -->
+    <select id="selectUserInfoByUserId" resultType="graduate.user.model.UserInfo">
+       select * from db_userinfo where userId=#{userId}
+    </select>
+    <!--
+        功能说明：更新用户信息
+    -->
+    <update id="updateUserInfo">
+        UPDATE
+        db_userinfo
+        SET
+        age = #{userInfo.age},
+        sex = #{userInfo.sex},
+        address = #{userInfo.address},
+        education = #{userInfo.education},
+        mail= #{userInfo.mail},
+        tel= #{userInfo.tel}
+        WHERE
+        userId = #{userInfo.userId}
+    </update>
+</mapper>
+
+
+

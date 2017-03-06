@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="graduate.user.dao.CodeDao">
+	<resultMap id="codeMap" type="graduate.user.model.CodeInfo">
+		<result column="codeId" property="codeId" javaType="long"></result>
+		<result column="codeName" property="codeName" javaType="string"></result>
+		<result column="codeValue" property="codeValue" javaType="string"></result>
+		<result column="codeRemarks" property="codeRemarks" javaType="string"></result>
+		<result column="codePater" property="codePater" javaType="string"></result>
+	</resultMap>
+	<!--
+		功能说明：新增code信息
+	-->
+	<insert id="insertCodeInfo">
+		INSERT INTO db_user
+		(
+			codeName,
+			codeValue,
+			codePater,
+			codeRemarks,
+		)
+		VALUES
+		(
+			#codeName:VARCHAR#,
+			#codeValue:VARCHAR#,
+			#codePater:VARCHAR#,
+			#codeRemarks:VARCHAR#
+		)
+	</insert>
+	<!--
+		功能说明：根据codeId删除code
+	-->
+	<delete id="deleteCodeInfo">
+		DELETE FROM
+			db_code
+		WHERE
+			codeId = #codeId#
+	</delete>
+
+	<!--
+		功能说明：根据codeId查询code信息
+	-->
+	<select id="updateCodeInfo"   resultMap="codeMap">
+		SELECT
+			*
+		FROM
+			db_code
+		WHERE
+			codeId = #codeId#
+	</select>
+
+	<!--
+		功能说明：更新code信息
+	-->
+	<update id="selectCodeByCodeId"  >
+		UPDATE
+			db_code
+		SET
+			#codeName:VARCHAR#,
+			#codeValue:VARCHAR#,
+			#codePater:VARCHAR#,
+			#codeRemarks:VARCHAR#
+		WHERE
+			codeId = #codeId#
+	</update>
+</mapper>

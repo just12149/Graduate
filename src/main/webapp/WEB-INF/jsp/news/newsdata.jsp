@@ -16,28 +16,28 @@
   <script src="${pageContext.request.contextPath}/resources/javascript/showController.js"></script>
   <script src="${pageContext.request.contextPath}/resources/javascript/showService.js"></script>
 </head>
-<body ng-repeat="list in groupList">
+<body >
 
 <table width="40%" align="center" cellpadding="20px" cellspacing="20px">
    <tr>
      <td>
-       <h3 align="center" ng-bind="list.title" style="color: #4247c2"></h3>
+       <h3 align="center" ng-bind="news.title" style="color: #4247c2"></h3>
      </td>
    </tr>
   <tr>
     <td>
-      <span style="margin-left: 90px;">{{list.author}}</span>
-      <span style="padding-left: 16px;">{{list.createdTime}}</span>
+      <span style="margin-left: 90px;">{{news.author}}</span>
+      <span style="padding-left: 16px;">{{news.createdTime}}</span>
     </td>
   </tr>
   <tr>
     <td>
-      <img style="padding:20px 20px 30px 50px" width="570px" height="360px" src="${pageContext.request.contextPath}/upload/{{list.url}}">
+      <img style="padding:20px 20px 30px 50px" width="570px" height="360px" src="${pageContext.request.contextPath}/upload/{{news.httpUrl}}">
     </td>
   </tr>
   <tr style="padding-top: 10px;text-indent:30px;">
     <td>
-    <span ng-bind="list.content" style="font-size: 16px;letter-spacing: 1px; "></span>
+    <span ng-bind="news.content" style="font-size: 16px;letter-spacing: 1px; "></span>
     </td>
   </tr>
 </table>

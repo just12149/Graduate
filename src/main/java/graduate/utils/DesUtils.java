@@ -198,11 +198,8 @@ public class DesUtils {
             DesUtils des1 = new DesUtils("0fzg!+RIANTjtoP05@znUSb5yqlviljc");//自定义密钥
             System.out.println("解密前的字符：" + i1);
             System.out.println("解密后的字符：" + des1.decrypt(i1));
-
             //DesUtils d = new DesUtils("zmTa1WMz");
             //System.out.println(d.decrypt("5425d0da9fad2fa8"));
-
-
         }
         catch (Exception e) {
             e.printStackTrace();

@@ -4,7 +4,7 @@
   创建日期: 2016/1/21
   创建时间: 11:32
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="graduate.model.User" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="graduate.user.model.User" %>
 <%
     String context = request.getContextPath();
     String userName = (String) session.getAttribute("userName");
@@ -92,8 +92,6 @@
 
 </div>
 <div class="index_main index_width">
-
-
     <div class="index_nav">
       <%--  <ul class="top_nav ">
             <li><a href="/index"><i class="iconfont icon-home"></i><span >系统首页</span></a></li>

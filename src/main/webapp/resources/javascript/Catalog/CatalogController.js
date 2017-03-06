@@ -16,8 +16,6 @@
                     var param = {};
                     param.currentPage = params.page();
                     param.rowPerPage = params.count();
-
-
                     myService.queryPageDatas(param).success(function (data) {
                         //alert(data);
                         if (data.success) {
@@ -41,14 +39,6 @@
 
             }
         )
-
-
-
-
-
-
-
-
         /**
          *删除数据
          */
@@ -69,8 +59,6 @@
                     });
             }
         }
-
-
         /**
          *
          * @type {boolean}

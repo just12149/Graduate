@@ -37108,7 +37108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            applyVisual: makeApplyVisual('color'),
 
 	            /**
-	             * Create a mapper function
+	             * Create a dao function
 	             * @return {Function}
 	             */
 	            getColorMapper: function () {

@@ -1,20 +1,10 @@
 package cc;
 
-import graduate.dao.CatalogDao;
-import graduate.dao.NewsDao;
-import graduate.dao.UserDao;
-import graduate.model.Catalog;
-import graduate.model.News;
-import graduate.service.CatalogService;
-import graduate.service.NewsService;
-import graduate.service.UserService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import javax.annotation.Resource;
-import java.util.List;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,10 +15,10 @@ public class AllTest {
 //    @Resource
 //    UserService userService;
 
-    @Resource
+   /* @Resource
     NewsDao newsDao;
     @Resource
-    NewsService newsService;
+    NewsService newsService;*/
 
 //    @Resource
 //    CatalogDao catalogDao;
@@ -117,7 +107,7 @@ public class AllTest {
         catalog.setCreatedTime("2017-2-10");
         catalogDao.saveCatalog(catalog);
        catalogDao.updateCatalog(catalog);*/
-    List<News> news= newsService.findNewsByType(6);
-        System.out.println(news.toString());
+    /*List<News> news= newsService.findNewsByType(6);
+        System.out.println(news.toString());*/
     }
 }
