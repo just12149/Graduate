@@ -172,9 +172,6 @@
                                     </div>
                                 </td>news
                             </tr>
-
-
-
                             <tr>
                                 <td align="left" >
                                     <div class="form-group">

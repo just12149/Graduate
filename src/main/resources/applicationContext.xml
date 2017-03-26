@@ -10,8 +10,6 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
      ">
-
-
     <!-- 注解编程 -->
     <context:annotation-config/>
     <tx:annotation-driven/>
